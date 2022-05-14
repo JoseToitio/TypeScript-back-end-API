@@ -12,7 +12,7 @@ export default class ProductMiddleware {
     }
     if (name.length < 3) {
       return res.status(StatusCodes.UNPROCESSABLE_ENTITY)
-        .json({ message: '"name" must be at least 3 characters long' });
+        .json({ message: '"name" length must be at least 3 characters long' });
     }
     next();
   };
