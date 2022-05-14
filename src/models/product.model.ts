@@ -26,4 +26,13 @@ export default class ProductModel {
       ...product,
     };
   }
+
+  public async getById(orderId: number) {
+    const result = await this.connection.execute(
+      'SELECT * FROM Trybesmith.Products WHERE orderId = ?',
+      [orderId],
+    );
+    const [rows] = result;
+    return rows as Product[];
+  }
 }
