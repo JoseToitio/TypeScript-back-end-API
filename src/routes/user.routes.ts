@@ -8,10 +8,10 @@ const userController = new UserController();
 
 router.post(
   '/users',
+  userMiddleware.validUser,
   userMiddleware.validClass,
   userMiddleware.validLevel,
   userMiddleware.validPassword,
-  userMiddleware.validUser,
   userController.create,
 );
 export default router;

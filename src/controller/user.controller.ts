@@ -11,7 +11,7 @@ export default class UserController {
   public create = async (req: Request, res: Response) => {
     const user = req.body;
     const userCreated = await this.userService.create(user);
-    const token = jwt.sign({ userCreated }, SECRECT);
+    const token = jwt.sign(userCreated, SECRECT);
     res.status(StatusCodes.CREATED).json({ token });
   };
 }
